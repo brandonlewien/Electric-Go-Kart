@@ -37,8 +37,8 @@ HeartBeat HB;
  *   This means there should be about 4 0xA's being sent before counter == 1000.
  *   The filtered value being returned will only return a value between 0-9, where
  *   every other value is considered as garbage.
- */
-/*   It is also noted that this is improper technique. We are pulling the RXBUF without an interrupt.
+ *
+ *   It is also noted that this is improper technique. We are pulling the RXBUF without an interrupt.
  *   A proper technique is to use the EUSCI_A2 IRQ Function and when a flag is set then clear the flag.
  *   The reason why this technique wasn't implemented is because a bug kept getting thrown before the problem
  *   can be solved. However, in the usage that we are doing the values being retrieved aren't affected
