@@ -186,7 +186,7 @@ void joystickspin(void){
  *   pins are high and there should be a slow consistent blinking LED.
  */
 void Bluetooth_config(void){
-    //UCA2IE |= EUSCI_A_IE_TXIE;             // Enable interrupt for TX send
+    //UCA2IE |= EUSCI_A_IE_TXIE;           // Enable interrupt for TX send
     UCA2IE |= EUSCI_A_IE_RXIE;             // Enable interrupt for RX receive
     UART_send_n("AT",2);
     UART_send_n("AT+UART=115200",15);
