@@ -5,3 +5,5 @@ Full Wireless Go-Kart Code with Bluetooth HC-05 Modules. Half the beginning edit
 Group Members: Brandon Lewien, Jean-Christophe Owens, Arash Yousefzadeh, Adam Smrekar
 
 Professor: Alex Fosdick
+
+Original Repo: https://github.com/brandonlewien/EmbeddedFinal.git
