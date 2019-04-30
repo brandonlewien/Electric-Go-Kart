@@ -6,4 +6,4 @@ Group Members: Brandon Lewien, Jean-Christophe Owens, Arash Yousefzadeh, Adam Sm
 
 Professor: Alex Fosdick
 
-Original Repo: https://github.com/brandonlewien/EmbeddedFinal.git
+Original Repo: https://github.com/jeow9028/EmbeddedFinal.git
