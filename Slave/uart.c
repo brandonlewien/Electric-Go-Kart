@@ -24,24 +24,24 @@
 void UART_Configure(){
 #ifdef UCA0
     UCA0CTLW0 |= UCSWRST;                   // Put eUSCI in reset
-    P1SEL0 |= (BIT2 | BIT3);                //TX & Rx Primary mode
+    P1SEL0 |= (BIT2 | BIT3);                // TX & RX Primary mode
     P1SEL1 &= ~(BIT2 | BIT3);
 
     // Select Frame parameters and clock source
     UCA0CTLW0 |= EUSCI_A_CTLW0_SSEL__SMCLK;
-    UCA0CTLW0 &= ~EUSCI_A_CTLW0_PEN         //parity disabled
-              & ~EUSCI_A_CTLW0_MODE0        // set to uart mode
+    UCA0CTLW0 &= ~EUSCI_A_CTLW0_PEN         // Parity disabled
+              & ~EUSCI_A_CTLW0_MODE0        // Set to uart mode
               & ~EUSCI_A_CTLW0_MODE1
-              & ~EUSCI_A_CTLW0_MSB          //LSB first
-              & ~EUSCI_A_CTLW0_SEVENBIT     //8 bit character length
-              & ~EUSCI_A_CTLW0_SPB;         //one stop bit one start bit is default
+              & ~EUSCI_A_CTLW0_MSB          // LSB first
+              & ~EUSCI_A_CTLW0_SEVENBIT     // 8 bit character length
+              & ~EUSCI_A_CTLW0_SPB;         // One stop bit one start bit is default
     //Next couple lines does baud rate
     UCA0MCTLW = 0xB5A1;
     UCA0BR0 = 0x01;
     UCA0BR1 = 0x00;
     UCA0CTLW0 &= ~UCSWRST;                  // Initialize eUSCI
-  //EUSCI_A0->IE |= EUSCI_A_IE_TXIE;        //enable transmit interrupts
-    EUSCI_A0->IE |= EUSCI_A_IE_RXIE;        //enable receive interrupts
+  //EUSCI_A0->IE |= EUSCI_A_IE_TXIE;        // Enable transmit interrupts
+    EUSCI_A0->IE |= EUSCI_A_IE_RXIE;        // Enable receive interrupts
 #endif
 #ifdef UCA2
     UCA2CTLW0 |= UCSWRST;                  // Put eUSCI in reset
