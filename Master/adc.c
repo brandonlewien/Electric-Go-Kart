@@ -26,8 +26,8 @@ volatile uint16_t _nadc[32];
 volatile uint8_t _eos;                                  // channel to end the sequence on
 
 void ADC_init(){
-    while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);            //If ref generator busy, wait
-    REF_A->CTL0  = REF_A_CTL0_VSEL_0 | REF_A_CTL0_ON;   //Enable internal 1.2V ref
+    while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);            // If ref generator busy, wait
+    REF_A->CTL0  = REF_A_CTL0_VSEL_0 | REF_A_CTL0_ON;   // Enable internal 1.2V ref
 
     ADC14->CTL0 |= ADC14_CTL0_SHT0_5                    // ADC14 sample-and-hold time: 96 cycle sample time
                 | ADC14_CTL0_SHT1_5                     // ADC14 sample-and-hold time: 96 cycle sample time
@@ -38,10 +38,10 @@ void ADC_init(){
                 | ADC14_CTL0_ON;                        // Turn on the ADC14 module
     ADC14->CTL1 |= ADC14_CTL1_RES__14BIT;               // 14-bit resolution
 
-    while(!(REF_A->CTL0 & REF_A_CTL0_GENRDY));          //Wait for ref generator to settle
-    ADC14->CTL0 |= ADC14_CTL0_ENC;                      //Enable Conversions
+    while(!(REF_A->CTL0 & REF_A_CTL0_GENRDY));          // Wait for ref generator to settle
+    ADC14->CTL0 |= ADC14_CTL0_ENC;                      // Enable Conversions
 
-    NVIC_EnableIRQ(ADC14_IRQn);                         //Enable ADC int in NVIC module
+    NVIC_EnableIRQ(ADC14_IRQn);                         // Enable ADC int in NVIC module
 }
 
 void ADC14_IRQHandler(){
