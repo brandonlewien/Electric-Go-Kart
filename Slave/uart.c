@@ -1,7 +1,7 @@
 /******************************************************************************
  * @Title: uart.c
  *
- * @authors Adam Smrekar
+ * @authors Brandon Lewien, Adam Smrekar
  * @date November 30th, 2017
  * @version 2.0--12/7/17BL
  *
