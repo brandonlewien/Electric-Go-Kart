@@ -29,9 +29,9 @@
 volatile uint16_t value;
 
 void main(void){
-	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;
+    WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;
 #ifdef UART
-	UART_Configure();               // Configure UART
+    UART_Configure();               // Configure UART
     UART_send_n("ElectroKart",11);
     UART_send_byte(0xD);
     UART_send_byte(0xA);
@@ -58,14 +58,14 @@ void main(void){
     gpio_config();                  // GPIO Interrupt Enablers
     gpio_LEDout();
 #endif
-	__enable_irq();                 // Enable Interrupts
-	while(1){
-	    value = retriever();        // Store filtered value from receiver via bluetooth
+    __enable_irq();                 // Enable Interrupts
+    while(1){
+        value = retriever();        // Store filtered value from receiver via bluetooth
         status();                   // Implements Bluetooth status feedback
         joystickspin();             // Implement Motor status feedback
 #ifdef PWM
         pwm(value);                 // Use value from filtered function to generate proper PWM wave
 #endif
-	}
+    }
 }
 
